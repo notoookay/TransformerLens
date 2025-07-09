@@ -1042,7 +1042,7 @@ def convert_hf_model_config(model_name: str, **kwargs: Any):
             "n_heads": 32,
             "d_mlp": 14336,
             "n_layers": 32,
-            "n_ctx": 2048,  # capped due to memory issues
+            "n_ctx": 4096,  # capped due to memory issues
             "eps": 1e-5,
             "d_vocab": 128256,
             "act_fn": "silu",
@@ -1335,7 +1335,7 @@ def convert_hf_model_config(model_name: str, **kwargs: Any):
             "n_key_value_heads": hf_config.num_key_value_heads,
             "d_mlp": hf_config.intermediate_size,
             "n_layers": hf_config.num_hidden_layers,
-            "n_ctx": 2048,  # Capped bc the actual ctx length is 30k and the attn mask would be too big
+            "n_ctx": 4096,  # Capped bc the actual ctx length is 30k and the attn mask would be too big
             "eps": hf_config.rms_norm_eps,
             "d_vocab": hf_config.vocab_size,
             "act_fn": hf_config.hidden_act,
